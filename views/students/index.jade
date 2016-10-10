@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+		fieldset.fieldset
+			legend #{title}
+
+			if students.length > 0
+				table
+					thead
+						th Student Name
+						th Phone
+						th Email
+						th Date of Birth
+						th Status
+						th ID
+						th(colspan='3') Actions
+					tbody
+						-each student,i in students
+							tr
+								td
+									= student.name
+								td
+									= student.phone
+								td
+									= student.email
+								td
+									= student.dob
+								td
+									= student.isActive
+								td
+									= student._id
+								td
+									form(action='/students/#{student._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+										input(type='hidden',name='_method', value='DELETE')
+										button(type='submit',class='button alert') Remove
+								td
+									a(href='/students/#{student._id}/edit', class='button') Edit
+								td
+									a(href='/students/#{student._id}', class='button info') Show
+				a(href='/students/new', class='button') Enroll New Student
+			else
+				div.panel
+					p There are currently no students enrolled
+					a(href='/students/new', class='button') Enroll New Student

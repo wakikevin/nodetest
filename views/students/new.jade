@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+	div.row
+		fieldset.fieldset
+			legend Enter Student Details
+
+			form#formAddStudent(action='/students', method='post', name='addStudent')
+				
+				div.row
+					div.small-3.columns
+						label.text-right.middle Student Name
+					div.small-9.columns
+						input#studentName(name='name', type='text', placeholder='Enter The student Name')
+				div.row
+					div.small-3.columns
+						label.text-right.middle Student Email
+					div.small-9.columns
+						input#studentEmail(name='email', type='email', placeholder='Enter The student Email')
+				div.row
+					div.small-3.columns
+						label.text-right.middle Student Phone
+					div.small-9.columns
+						input#studentPhone(name='phone', type='number', placeholder='Enter The student Phone')
+				div.row
+					div.small-3.columns
+						label.text-right.middle Student DOB
+					div.small-9.columns
+						input#studentDOB(name='dob', type='date', placeholder='Enter The student DOB')
+				div.row
+					div.small-3.columns
+						label.text-right.middle Is the Student Active ?
+					div.small-9.columns
+						input#studentActive(name='isActive', type='checkbox')
+				div.row
+					div.small-4.columns
+						input(type='submit',value='Enroll Student', class='button success')
+					div.small-4.columns
+						input(type='reset', value='Cancel', class='button alert')
+					div.small-4.columns
+						a(href='/students' class='button') Back to Listing
+

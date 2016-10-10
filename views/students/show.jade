@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	div.row
+		fieldset.fieldset
+			legend Student Details for #{student._id}
+			table
+				tbody
+					tr
+						td Student Name
+						td #{student.name}
+					tr
+						td Student Email
+						td #{student.email}
+					tr
+						td Student Phone
+						td #{student.phone}
+					tr
+						td Student DOB
+						td #{studentdob}
+					tr
+						td is the student active ?
+						td #{student.isActive}
+					tr
+						td 
+							a(href='/students/#{student._id}/edit', class='button') Edit
+						td 
+							a(href='/students' class='button success') Back to Listing
